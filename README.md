@@ -1,4 +1,5 @@
 # ☀️ Real-Time-Weather-Dashboard
+This project was completed as part of the Elevvo Front-End Web Development Internship.
 A real-time weather dashboard built with HTML, CSS, and JavaScript that fetches weather data from an API. Display current conditions, forecasts, and search for multiple cities with a clean and minimal UI.
 
 ✨ Features
