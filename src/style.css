@@ -1,0 +1,101 @@
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --accent: #0f172a;
+  --muted: #6b7280;
+  --primary: #2563eb;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--accent);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app { max-width: 1200px; margin: auto; }
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+.controls { display: flex; gap: 8px; }
+.controls input, .controls button {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+.controls button {
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.controls button:hover { background: #1e40af; }
+
+.cities {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.city-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+.city-card:hover { transform: translateY(-2px); }
+
+.city-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.city-header h2 { font-size: 1.1rem; }
+.city-header span { font-weight: bold; font-size: 1.1rem; }
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.remove-btn:hover { color: red; }
+
+.current {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.current img { width: 40px; height: 40px; }
+
+.forecast {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.forecast-day {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.forecast-day img { width: 35px; height: 35px; }
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}

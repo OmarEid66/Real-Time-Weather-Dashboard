@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>Weather Dashboard</h1>
+      <div class="controls">
+        <input id="searchInput" type="text" placeholder="Enter city (e.g. Paris)" />
+        <button id="searchBtn">Add City</button>
+      </div>
+    </header>
+
+    <!-- Cities container -->
+    <section id="cities" class="cities"></section>
+
+    <footer class="footer">
+      <small>Data from OpenWeatherMap • Built with HTML/CSS/JS</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
