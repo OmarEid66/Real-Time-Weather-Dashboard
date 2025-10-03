@@ -1,21 +1,30 @@
 :root {
   --bg: #f8fafc;
-  --card: #ffffff;
+  --card: rgba(255, 255, 255, 0.9); /* slightly transparent card */
   --accent: #0f172a;
   --muted: #6b7280;
   --primary: #2563eb;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
   font-family: system-ui, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--accent);
+  background: url('https://www.offalyexpress.ie/resizer/800/-1/true/2023_04_26/Weekend_Weather_Sunshine-1682532643667.jpg--ireland_weather__met_eireann_forecast_rise_in_temperatures_and_brighter_weather_for_bank_holiday_weekend.jpg?1682532645513') no-repeat center center fixed;
+  background-size: cover;
   min-height: 100vh;
   padding: 20px;
+  color: var(--accent);
 }
 
-.app { max-width: 1200px; margin: auto; }
+/* Overlay for content readability */
+.app {
+  max-width: 1200px;
+  margin: auto;
+  background-color: rgba(248, 250, 252, 0.85);
+  padding: 20px;
+  border-radius: 12px;
+}
 
 .topbar {
   display: flex;
@@ -49,7 +58,7 @@ body {
   background: var(--card);
   border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s;
 }
 .city-card:hover { transform: translateY(-2px); }

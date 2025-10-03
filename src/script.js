@@ -1,4 +1,4 @@
-const API_KEY = "d66df621c8aa0de343d3efa69e049ec3"; // your key
+const API_KEY = "d66df621c8aa0de343d3efa69e049ec3"; 
 const citiesContainer = document.getElementById("cities");
 const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
@@ -6,7 +6,6 @@ const searchBtn = document.getElementById("searchBtn");
 // Fetch weather by city name
 async function fetchWeather(city) {
   try {
-    // Show loading state
     const loadingCard = document.createElement("div");
     loadingCard.className = "city-card";
     loadingCard.textContent = `Loading ${city}...`;
@@ -22,7 +21,6 @@ async function fetchWeather(city) {
     const current = await currentRes.json();
     const forecast = await forecastRes.json();
 
-    // Filter forecast (next 3 days at 12:00)
     const daily = forecast.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 3);
 
     loadingCard.remove();
@@ -33,7 +31,7 @@ async function fetchWeather(city) {
   }
 }
 
-// Fetch weather by coordinates (bonus feature)
+// Fetch weather by coordinates (bonus)
 async function fetchWeatherByCoords(lat, lon) {
   try {
     const [currentRes, forecastRes] = await Promise.all([
@@ -43,7 +41,6 @@ async function fetchWeatherByCoords(lat, lon) {
 
     const current = await currentRes.json();
     const forecast = await forecastRes.json();
-
     const daily = forecast.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 3);
 
     renderCityCard(current, daily);
@@ -52,7 +49,7 @@ async function fetchWeatherByCoords(lat, lon) {
   }
 }
 
-// Render city weather card
+// Render city card
 function renderCityCard(current, forecast) {
   const card = document.createElement("div");
   card.className = "city-card";
@@ -78,15 +75,11 @@ function renderCityCard(current, forecast) {
     </div>
   `;
 
-  // ❌ Remove card button
-  card.querySelector(".remove-btn").addEventListener("click", () => {
-    card.remove();
-  });
-
+  card.querySelector(".remove-btn").addEventListener("click", () => card.remove());
   citiesContainer.appendChild(card);
 }
 
-// --- Search button ---
+// Search button
 searchBtn.addEventListener("click", () => {
   const city = searchInput.value.trim();
   if (city) {
@@ -95,21 +88,16 @@ searchBtn.addEventListener("click", () => {
   }
 });
 
-// --- Press Enter to search ---
+// Enter key triggers search
 searchInput.addEventListener("keypress", e => {
-  if (e.key === "Enter") {
-    searchBtn.click();
-  }
+  if (e.key === "Enter") searchBtn.click();
 });
 
-// --- Auto-fetch user's current location on load ---
+// Auto-fetch user's location on load
 window.addEventListener("load", () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
-      pos => {
-        const { latitude, longitude } = pos.coords;
-        fetchWeatherByCoords(latitude, longitude);
-      },
+      pos => fetchWeatherByCoords(pos.coords.latitude, pos.coords.longitude),
       () => console.log("User denied location access")
     );
   }
